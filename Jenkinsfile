@@ -17,7 +17,7 @@ pipeline {
 
         stage('Front-End Unit Test') {
           steps {
-            sh 'cd gcp_hello_world && pip3 install -r requirements.txt && uvicorn main.app:app'
+            sh 'pip3 install -r requirements.txt && uvicorn main.app:app'
           }
         }
 
