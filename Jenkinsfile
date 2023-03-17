@@ -17,7 +17,7 @@ pipeline {
 
         stage('Front-End Unit Test') {
           steps {
-            sh 'pip3 install -r requirements.txt && uvicorn main.app:app'
+            sh 'pip install -r requirements.txt && uvicorn main.app:app'
           }
         }
 
