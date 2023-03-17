@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('log') {
-      steps {
-        sh 'ls -la'
+      parallel {
+        stage('log') {
+          steps {
+            sh 'ls -la'
+          }
+        }
+
+        stage('Front-End Unit Test') {
+          steps {
+            sh 'cd gcp_hello_world && pip3 install -r requirements.txt && uvicorn main.app:app'
+          }
+        }
+
       }
     }
 
